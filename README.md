@@ -18,10 +18,9 @@ This weather website provides users with up-to-date weather information for any 
 ## Setup 🛠️
 To set up the weather website on your local machine, follow these steps:
 
-Clone the repository: git clone https://github.com/oscarjonssson/weather-website.git
-Install the required dependencies: npm install
-Start the server: npm start
+* Clone the repository: git clone https://github.com/oscarjonssson/weather-website.git
+* Install the required dependencies: npm install
+* Start the server: npm start
 
 ## Contributors 🤝
-Oscar Jonsson
-Filip Dimitrijevic
+Oscar Jonsson | Filip Dimitrijevic
