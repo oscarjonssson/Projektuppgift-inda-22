@@ -13,7 +13,7 @@ This weather website provides users with up-to-date weather information for any 
 * HTML: The website's structure and content are built using HTML.
 * CSS: The website's styling and layout are created using CSS.
 * Java: The website's backend functionality, including retrieving weather data and processing user queries, is implemented using Java.
-* 💬 ChatGPT API: The chatbot feature is powered by ChatGPT API, which provides conversational AI capabilities.
+* 💬 OpenAI ChatGPT API: We will use OpenAI's ChatGPT API in the developing process. It will be used in the programming of the webiste to enhance the user experience. For example, the interactive map. With our programming experience and the help of the AI tool, we plan to create a more interactive map.
 * 🌍 OpenWeatherMap API: The website uses OpenWeatherMap API to retrieve weather data for any location in the world.
 
 ## Setup 🛠️
