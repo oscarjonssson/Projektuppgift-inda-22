@@ -14,7 +14,7 @@ This weather website provides users with up-to-date weather information for any 
 * CSS: The website's styling and layout are created using CSS.
 * Java: The website's backend functionality, including retrieving weather data and processing user queries, is implemented using Java.
 * 💬 OpenAI ChatGPT API: We will use OpenAI's ChatGPT API in the developing process. It will be used in the programming of the webiste to enhance the user experience. For example, the interactive map. With our programming experience and the help of the AI tool, we plan to create a more interactive map.
-* 📈 OpenAI GitHub Copilot: We will also use GitHub Copilot in the developing process as an integrated part of VSCode. It is also an AI tool, this will help us to write code faster and more efficiently.
+* 📈 GitHub Copilot: We will also use GitHub Copilot in the developing process as an integrated part of VSCode. It is also an AI tool, this will help us to write code faster and more efficiently.
 * 🌍 OpenWeatherMap API: The website uses OpenWeatherMap API to retrieve weather data for any location in the world.
 
 ## Setup 🛠️
