@@ -1,7 +1,8 @@
-# 🌦️Projektuppgift-inda-22🌧️
-
 ## Weather Website 🌞
 This weather website provides users with up-to-date weather information for any location in the world. The website is built using CSS, HTML, and Java and incorporates AI tools to enhance user experience.
+
+## Description
+* A weather website that provides users with up-to-date weather information for any location in the world. This is a part of the KTH course DD1349 Project in Introduction to Computer Science. The project is four week long project where we are supposed allowed to use AI tools in the developing process. 
 
 ## Features
 * 🌡️ Current weather conditions: Users can view the current temperature, humidity, wind speed, and other weather conditions for any location in the world.
