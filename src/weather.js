@@ -1,36 +1,59 @@
-const apiKey = "9226ed0b9dd0791ba0039533eae0c888";
-const baseUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
-
-const form = document.querySelector("form");
-const input = document.querySelector("input[name=location]");
-const weatherInfo = document.querySelector("#weather-info");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const city = input.value;
-  const url = `${baseUrl}${city}&appid=${apiKey}&units=metric`;
-
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      const temperature = data.main.temp;
-      const humidity = data.main.humidity;
-      const windSpeed = data.wind.speed;
-      const description = data.weather[0].description;
-      const iconCode = data.weather[0].icon;
-      const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
-      const html = `
-        <div class="weather-card">
-          <img src="${iconUrl}" alt="${description}">
-          <h2>${city}</h2>
-          <p class="temperature">${temperature} &#8451;</p>
-          <p>Humidity: ${humidity} %</p>
-          <p>Wind speed: ${windSpeed} m/s</p>
-          <p>Description: ${description}</p>
-        </div>
-      `;
-      weatherInfo.innerHTML = html;
-    })
-    .catch((error) => console.log(error));
-});
-
+window.onload = function() {
+    const form = document.querySelector('form');
+    const input = document.querySelector('input[name="location"]');
+    const forecastElem = document.getElementById('today-widget');
+    const forecastWidgetElem = document.getElementById('forecast-widget');
+  
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+  
+      const city = input.value;
+  
+      // Get weather data for the city
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', `/weather?city=${city}`);
+      xhr.send();
+  
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          const temperature = response.temperature;
+          const humidity = response.humidity;
+          const windSpeed = response.wind_speed;
+          const description = response.description;
+          const forecast = response.forecast;
+  
+          // Update widget with weather data
+          forecastElem.innerHTML = `
+            <h2>${city}</h2>
+            <p>Temperature: ${temperature} °C</p>
+            <p>Humidity: ${humidity} %</p>
+            <p>Wind speed: ${windSpeed} m/s</p>
+            <p>Description: ${description}</p>
+          `;
+  
+          // Update 7-day forecast
+          let forecastHTML = '';
+          for (let i = 0; i < forecast.length; i++) {
+            const forecastItem = forecast[i];
+            forecastHTML += `
+              <div class="forecast-item">
+                <h3>${forecastItem.date}</h3>
+                <p>Temperature: ${forecastItem.temperature} °C</p>
+                <p>Humidity: ${forecastItem.humidity} %</p>
+                <p>Wind speed: ${forecastItem.wind_speed} m/s</p>
+                <p>Description: ${forecastItem.description}</p>
+              </div>
+            `;
+          }
+          forecastWidgetElem.innerHTML = forecastHTML;
+        } else {
+          const errorElem = document.createElement('p');
+          errorElem.innerText = 'Unable to get weather data. Please try again.';
+          forecastElem.appendChild(errorElem);
+        }
+      }
+    });
+  }
+  
+  
