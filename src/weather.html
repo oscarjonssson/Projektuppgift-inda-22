@@ -2,11 +2,43 @@
 <html>
 
 <head>
-    <title>Weather</title>
-    <form action="/search" method="get">
-        <label for="search">Search:</label>
-        <input type="text" id="search" name="q">
-        <button type="submit">Search</button>
-    </form>
-    <link rel="stylesheet" href="css/weather.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Website</title>
+    <link rel="stylesheet" href="weather.css">
 </head>
+
+<body>
+    <header>
+        <h1>Weather Website</h1>
+        <form>
+            <input type="text" name="location" placeholder="Search Location">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <main>
+
+        <section id="forecast">
+            <h1>7-Day Forecast</h1>
+            <div id="today-widget">
+                <h2>Today</h2>
+                <!-- Widget content goes here -->
+            </div>
+            <!-- 7-day forecast code goes here -->
+        </section>
+
+        <section id="map">
+            <h2>Map</h2>
+            <!-- Interactive map code goes here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Weather Website</p>
+    </footer>
+
+    <script src="weather.js"></script>
+</body>
+
+</html>
