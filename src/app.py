@@ -4,7 +4,7 @@ import json
 
 app = Flask(__name__)
 
-OPEN_WEATHER_MAP_API = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}&units=metric"
+OPEN_WEATHER_MAP_API = "http://api.openweathermap.org/data/2.5/weather?q={city name}&appid={9226ed0b9dd0791ba0039533eae0c888}"
 OPEN_WEATHER_MAP_API_KEY = "9226ed0b9dd0791ba0039533eae0c888"
 
 @app.route('/', methods=['GET', 'POST'])
@@ -24,7 +24,7 @@ def home():
     description = data["weather"][0]["description"]
 
     # Get 7-day forecast data
-    forecast_url = "https://api.openweathermap.org/data/2.5/forecast?q={}&appid={}&units=metric".format(city, OPEN_WEATHER_MAP_API_KEY)
+    forecast_url = "http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={9226ed0b9dd0791ba0039533eae0c888}".format(city, OPEN_WEATHER_MAP_API_KEY)
     forecast_response = requests.get(forecast_url)
     forecast_data = json.loads(forecast_response.text)
 

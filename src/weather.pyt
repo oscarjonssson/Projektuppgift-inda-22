@@ -1,7 +1,8 @@
 import requests
 import json
 
-OPEN_WEATHER_MAP_API = "https://api.openweathermap.org/data/2.5/weather?q={}&appid={}&units=metric"
+OPEN_WEATHER_MAP_API = "http://api.openweathermap.org/data/2.5/weather?q={city name}&appid={9226ed0b9dd0791ba0039533eae0c888}"
+
 OPEN_WEATHER_MAP_API_KEY = "9226ed0b9dd0791ba0039533eae0c888"
 
 def get_weather_data(city):
