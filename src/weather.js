@@ -66,7 +66,7 @@ function displayWeather(location, temperature, description, forecastList) {
     );
 
     // Find highest and lowest temperature for the day
-    let highestTemp = Number.MIN_SAFE_INTEGER.toFixed(0);
+    let highestTemp = Number.MIN_SAFE_INTEGER;
     let lowestTemp = Number.MAX_SAFE_INTEGER;
     for (let i = 0; i < forecastDay.length; i++) {
       const temp = forecastDay[i].main.temp;
