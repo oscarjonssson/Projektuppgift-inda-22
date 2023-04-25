@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Website</title>
+    <link rel="stylesheet" href="weather.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather Website</title>
-  <link rel="stylesheet" href="weather.css" />
-</head>
+  <body>
+    <header>
+      <h1>Weather Website</h1>
+      <form>
+        <input type="text" name="location" placeholder="Search Location" />
+        <button type="submit">Search</button>
+      </form>
+    </header>
 
-<body>
-  <header>
-    <h1>Weather Website</h1>
-    <form>
-      <input type="text" name="location" placeholder="Search Location" />
-      <button type="submit">Search</button>
-    </form>
-  </header>
-
-  <main>
-    <div id="forecast">
-      <h1>7-Day Forecast</h1>
-      <div id="today-widget">
-        <h2>Today</h2>
-        <!-- Widget content goes here -->
-        <div>
-          <h2></h2>
-          <p>Temperature:</p>
-          <p>Description:</p>
+    <main>
+      <div id="forecast">
+        <div id="today-widget">
+          <h2>Today</h2>
+          <!-- Widget content goes here -->
+          <div>
+            <h2></h2>
+            <p>Temperature:</p>
+            <p>Description:</p>
+          </div>
         </div>
+        <!-- 7-day forecast code goes here -->
+        <div id="forecast-widget">
+          <h2>7-Day Forecast</h2>
+          <div id="forecast-container"></div>
+        </div>
+        
+          <div class="forecast-day">
+
       </div>
-      <!-- 7-day forecast code goes here -->
-      <div id="forecast-widget"></div>
-    </div>
 
-    <section id="map">
-      <h2>Map</h2>
-      <!-- Interactive map code goes here -->
-    </section>
+      <section id="map">
+        <h2>Map</h2>
+        <!-- Interactive map code goes here -->
+      </section>
+    </main>
 
+    <footer>
+      <p>&copy; 2023 Weather Website</p>
+    </footer>
 
-  </main>
-
-  <footer>
-    <p>&copy; 2023 Weather Website</p>
-  </footer>
-
-  <script src="weather.js"></script>
-</body>
-
+    <script src="weather.js"></script>
+  </body>
 </html>
