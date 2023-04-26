@@ -6,7 +6,7 @@ const forecastWidget = document.querySelector("#forecast-widget");
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const location = locationInput.value;
+  const location = locationInput.value.charAt(0).toUpperCase() + locationInput.value.slice(1);
   try {
     // Get current weather data
     const response = await fetch(
