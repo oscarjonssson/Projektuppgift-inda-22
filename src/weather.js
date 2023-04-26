@@ -34,7 +34,7 @@ function displayWeather(location, temperature, description, forecastList) {
   todayWidget.innerHTML = `
       <h2>${location}</h2>
       <p>Temperature: ${temperature} &deg;C</p>
-      <p>Description: ${description}</p>
+      <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon}.png" alt="${description}" />
     `;
 
   // Group forecast data by day
@@ -84,7 +84,7 @@ function displayWeather(location, temperature, description, forecastList) {
           <h3>${dayOfWeek}</h3>
           <p>Highest temperature: ${highestTemp} &deg;C</p>
           <p>Lowest temperature: ${lowestTemp} &deg;C</p>
-          <p>Description: ${description}</p>
+          <img src="https://openweathermap.org/img/w/${forecastDay[0].weather[0].icon}.png" alt="${description}" />
         </div>
       `;
     forecastContainer.innerHTML += forecastDayHTML;
