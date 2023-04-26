@@ -89,52 +89,12 @@ footer {
   margin-top: 40px;
 }
 
-/* Weather card styles */
-.weather-card {
-  background-color: #fff;
-  border-radius: 20px;
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  border: none;
+  overflow: hidden;
+  margin-bottom: 16px;
   box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-  padding: 30px;
-  margin-bottom: 30px;
-  display: inline-block;
-  width: 300px;
-}
-
-.weather-card__icon {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.weather-card__icon img {
-  width: 120px;
-}
-
-.weather-card__title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.weather-card__temperature {
-  font-size: 48px;
-  margin-bottom: 20px;
-  font-weight: 800;
-}
-
-.weather-card__graph {
-  width: 100%;
-  height: 100px;
-  margin-bottom: 20px;
-}
-
-.weather-card__graph canvas {
-  width: 100%;
-  height: 100%;
-}
-
-.weather-card__description {
-  font-size: 16px;
-  margin-bottom: 20px;
-  font-weight: 600;
 }

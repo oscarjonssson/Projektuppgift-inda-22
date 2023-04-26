@@ -63,11 +63,17 @@ searchForm.addEventListener("submit", async (e) => {
 });
 
 function displayWeather(location, temperature, description, forecastList) {
+  // Display today's weather card
   todayWidget.innerHTML = `
+    <div class="card">
       <h2>${location}</h2>
-      <p>Temperature: ${temperature} &deg;C</p>
-      <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon}.png" alt="${description}" />
-    `;
+      <div class="card-content">
+        <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon}.png" alt="${description}" />
+        <p class="temperature">${temperature} &deg;C</p>
+        <p class="description">${description}</p>
+      </div>
+    </div>
+  `;
 
   // Group forecast data by day
   const forecastsByDay = {};
@@ -86,10 +92,9 @@ function displayWeather(location, temperature, description, forecastList) {
     forecastsByDay[day].push(forecast);
   }
 
-  // Display 7-day forecast data
+  // Display 7-day forecast cards
   const forecastContainer = document.querySelector("#forecast-container");
   forecastContainer.innerHTML = "";
-
   for (const day in forecastsByDay) {
     const forecastDay = forecastsByDay[day];
     const dayOfWeek = new Date(forecastDay[0].dt * 1000).toLocaleString(
@@ -112,13 +117,16 @@ function displayWeather(location, temperature, description, forecastList) {
 
     const description = forecastDay[0].weather[0].description;
     const forecastDayHTML = `
-        <div class="forecast-day">
-          <h3>${dayOfWeek}</h3>
-          <p>Highest temperature: ${highestTemp} &deg;C</p>
-          <p>Lowest temperature: ${lowestTemp} &deg;C</p>
+      <div class="card">
+        <h3>${dayOfWeek}</h3>
+        <div class="card-content">
           <img src="https://openweathermap.org/img/w/${forecastDay[0].weather[0].icon}.png" alt="${description}" />
+          <p class="temperature">High: ${highestTemp} &deg;C</p>
+          <p class="temperature">Low: ${lowestTemp} &deg;C</p>
+          <p class="description">${description}</p>
         </div>
-      `;
+      </div>
+    `;
     forecastContainer.innerHTML += forecastDayHTML;
   }
 
