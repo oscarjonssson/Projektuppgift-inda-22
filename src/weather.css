@@ -56,28 +56,32 @@ button[type="submit"] {
 /* Main styles */
 main {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-#map {
-  flex: 1;
-  min-height: 400px;
+.today-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
-#forecast {
-  flex: 2;
-  min-height: 400px;
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+.forecast-cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
 }
 
 /* Footer styles */
@@ -97,4 +101,13 @@ footer {
   overflow: hidden;
   margin-bottom: 16px;
   box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
 }
