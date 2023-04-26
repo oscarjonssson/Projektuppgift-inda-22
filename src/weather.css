@@ -14,13 +14,13 @@ body {
 
 /* Header styles */
 header {
-  background-color: #fff;
-  color: #111;
+  background-color: #ffffff;
+  color: #111111;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -40,6 +40,9 @@ input[type="text"] {
   border: none;
   border-radius: 20px 0 0 20px;
   font-size: 16px;
+  background-color: #f7f7f7;
+  color: #111;
+  transition: all 0.2s ease-in-out;
 }
 
 button[type="submit"] {
@@ -51,6 +54,19 @@ button[type="submit"] {
   border-radius: 0 20px 20px 0;
   cursor: pointer;
   font-size: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"]:hover {
+  background-color: #fff;
+  color: #111;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Main styles */
@@ -69,9 +85,9 @@ main {
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 20px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   border-radius: 10px;
 }
@@ -87,7 +103,7 @@ main {
 /* Footer styles */
 footer {
   background-color: #111;
-  color: #fff;
+  color: #ffffff;
   padding: 20px;
   text-align: center;
   margin-top: 40px;
@@ -100,7 +116,7 @@ footer {
   border: none;
   overflow: hidden;
   margin-bottom: 16px;
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 16px;
 }
@@ -109,5 +125,5 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
