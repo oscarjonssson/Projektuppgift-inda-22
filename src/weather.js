@@ -4,13 +4,11 @@ const locationInput = document.querySelector('input[name="location"]');
 const todayWidget = document.querySelector("#today-widget");
 const forecastWidget = document.querySelector("#forecast-widget");
 
-searchForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const location = locationInput.value.charAt(0).toUpperCase() + locationInput.value.slice(1);
+// Get default weather data for Stockholm
+async function getDefaultWeather() {
   try {
-    // Get current weather data
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?lat=59.3293&lon=18.0686&appid=${apiKey}&units=metric`
     );
     const data = await response.json();
     console.log(data); // Print the data object to the console to see the structure of the response
@@ -19,14 +17,48 @@ searchForm.addEventListener("submit", async (e) => {
 
     // Get 7-day forecast data
     const forecastResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=59.3293&lon=18.0686&appid=${apiKey}&units=metric`
     );
     const forecastData = await forecastResponse.json();
     console.log(forecastData); // Print the data object to the console to see the structure of the response
 
-    displayWeather(location, temperature, description, forecastData.list);
+    displayWeather("Stockholm", temperature, description, forecastData.list);
   } catch (error) {
     console.error(error);
+  }
+}
+
+// Call getDefaultWeather on page load
+getDefaultWeather();
+
+searchForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  let location = locationInput.value.charAt(0).toUpperCase() + locationInput.value.slice(1);
+  if (!location) {
+    // If location is empty, call getDefaultWeather
+    getDefaultWeather();
+  } else {
+    try {
+      // Get current weather data
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
+      );
+      const data = await response.json();
+      console.log(data); // Print the data object to the console to see the structure of the response
+      const temperature = data.main.temp.toFixed(0);
+      const description = data.weather[0].description;
+
+      // Get 7-day forecast data
+      const forecastResponse = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric`
+      );
+      const forecastData = await forecastResponse.json();
+      console.log(forecastData); // Print the data object to the console to see the structure of the response
+
+      displayWeather(location, temperature, description, forecastData.list);
+    } catch (error) {
+      console.error(error);
+    }
   }
 });
 
