@@ -12,7 +12,6 @@ window.onload = function () {
     // Create a function that will update the map based on the user's input
     function updateMap(location) {
         // Make a request to a backend API that returns the latitude and longitude for the given location
-        // Replace the API_URL with the URL of your backend API
         var API_URL = 'https://api.protomaps.com/tiles/v2/{z}/{x}/{y}.pbf?key=e732aade34382989';
         fetch(API_URL + '?location=' + location)
             .then(response => response.json())
