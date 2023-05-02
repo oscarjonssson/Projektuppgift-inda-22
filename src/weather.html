@@ -1,51 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Website</title>
-    <link rel="stylesheet" href="weather.css" />
-  </head>
 
-  <body>
-    <header>
-      <h1>Weather Website</h1>
-      <form>
-        <input type="text" name="location" placeholder="Search Location" />
-        <button type="submit">Search</button>
-      </form>
-    </header>
+<head>
 
-    <main>
-      <div id="forecast">
-        <div id="today-widget">
-          <h2>Today</h2>
-          <!-- Widget content goes here -->
-          <div>
-            <h2></h2>
-          </div>
-        </div>
-        <!-- 7-day forecast code goes here -->
-        <div id="forecast-widget">
-          <h2>7-Day Forecast</h2>
-          <div id="forecast-container" class="forecast-cards"></div>
-        </div>
-        
-        <div id="forecast-days">
-          <!-- Weather card elements will be added here -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Website</title>
+  <link rel="stylesheet" href="weather.css" />
+
+  <!-- Include Leaflet CSS stylesheet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+</head>
+
+<body>
+  <header>
+    <h1>Weather Website</h1>
+    <form>
+      <input type="text" name="location" placeholder="Search Location" />
+      <button type="submit">Search</button>
+    </form>
+  </header>
+
+  <main>
+    <div id="forecast">
+      <div id="today-widget">
+        <h2>Today</h2>
+        <!-- Widget content goes here -->
+        <div>
+          <h2></h2>
         </div>
       </div>
+      <!-- 7-day forecast code goes here -->
+      <div id="forecast-widget">
+        <h2>7-Day Forecast</h2>
+        <div id="forecast-container" class="forecast-cards"></div>
+      </div>
 
-      <section id="map">
-        <h2>Map</h2>
-        <!-- Interactive map code goes here -->
-      </section>
-    </main>
+      <div id="forecast-days">
+        <!-- Weather card elements will be added here -->
+      </div>
+    </div>
 
-    <footer>
-      <p>&copy; 2023 Weather Website</p>
-    </footer>
+    <div id="map" style="height: 400px; width: 400px;"></div>
+    <!-- Add a div for the map with a height defined in CSS -->
 
-    <script src="weather.js"></script>
-  </body>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Weather Website</p>
+  </footer>
+
+  <!-- Include Leaflet JavaScript library -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <!-- Include your own JavaScript file that contains map initialization code -->
+  <script src="map.js"></script>
+  <script src="weather.js"></script>
+</body>
+
 </html>
