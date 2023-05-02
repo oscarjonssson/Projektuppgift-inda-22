@@ -33,7 +33,8 @@ getDefaultWeather();
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  let location = locationInput.value.charAt(0).toUpperCase() + locationInput.value.slice(1);
+  let location =
+    locationInput.value.charAt(0).toUpperCase() + locationInput.value.slice(1);
   if (!location) {
     // If location is empty, call getDefaultWeather
     getDefaultWeather();
@@ -120,7 +121,9 @@ function displayWeather(location, temperature, description, forecastList) {
       <div class="card">
         <h3>${dayOfWeek}</h3>
         <div class="card-content">
-          <img src="https://openweathermap.org/img/w/${forecastDay[0].weather[0].icon}.png" alt="${description}" />
+          <img src="https://openweathermap.org/img/w/${
+            forecastDay[0].weather[0].icon
+          }.png" alt="${description}" />
           <p class="temperature">High: ${Math.round(highestTemp)} &deg;C</p>
           <p class="temperature">Low: ${Math.round(lowestTemp)} &deg;C</p>
           <p class="description">${description}</p>
