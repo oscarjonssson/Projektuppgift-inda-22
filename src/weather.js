@@ -121,8 +121,8 @@ function displayWeather(location, temperature, description, forecastList) {
         <h3>${dayOfWeek}</h3>
         <div class="card-content">
           <img src="https://openweathermap.org/img/w/${forecastDay[0].weather[0].icon}.png" alt="${description}" />
-          <p class="temperature">High: ${highestTemp} &deg;C</p>
-          <p class="temperature">Low: ${lowestTemp} &deg;C</p>
+          <p class="temperature">High: ${Math.round(highestTemp)} &deg;C</p>
+          <p class="temperature">Low: ${Math.round(lowestTemp)} &deg;C</p>
           <p class="description">${description}</p>
         </div>
       </div>
