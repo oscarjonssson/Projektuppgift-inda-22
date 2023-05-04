@@ -73,6 +73,10 @@ function displayWeather(location, temperature, description, forecastList) {
         <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon}.png" alt="${description}" />
         <p class="temperature">${temperature} &deg;C</p>
         <p class="description">${description}</p>
+        <p class="feels-like">Feels like ${forecastList[0].main.feels_like.toFixed(0)} &deg;C</p>
+        <p class="wind">Wind ${forecastList[0].wind.speed.toFixed(0)} m/s</p>
+        <p class="humidity">Humidity ${forecastList[0].main.humidity} %</p>
+        <p class="pressure">Pressure ${forecastList[0].main.pressure} hPa</p>
       </div>
     </div>
   `;
