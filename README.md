@@ -20,7 +20,7 @@ This weather website provides users with up-to-date weather information for any 
 ## Setup 🛠️
 To set up the weather website on your local machine, follow these steps:
 
-* Clone the repository: git clone https://github.com/oscarjonssson/weather-website.git
+* Clone the repository: git clone git@github.com:oscarjonssson/projektuppgift-inda-22.git
 * Install the required dependencies: npm install
 * Start the server: npm start
 
