@@ -10,6 +10,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #F1F1F1;
   color: #111;
+  line-height: 1.5;
 }
 
 /* Header styles */
@@ -119,7 +120,7 @@ footer {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 16px;
-  width: 220px; /* Divide the width of the container by the number of cards per row and subtract the margin */
+  width: 220px;
 }
 
 .card-header {
