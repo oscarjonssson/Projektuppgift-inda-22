@@ -68,18 +68,34 @@ function displayWeather(location, temperature, description, forecastList) {
   // Display today's weather card
   todayWidget.innerHTML = `
     <div class="card large">
-      <h2>${location}</h2>
+      <div class="card-header">
+        <h2>${location}</h2>
+        <span id="current-time"></span>
+      </div>
       <div class="card-content">
-        <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon}.png" alt="${description}" />
+        <img src="https://openweathermap.org/img/w/${
+          forecastList[0].weather[0].icon
+        }.png" alt="${description}" />
         <p class="temperature">${temperature} &deg;C</p>
         <p class="description">${description}</p>
-        <p class="feels-like">Feels like ${forecastList[0].main.feels_like.toFixed(0)} &deg;C</p>
+        <p class="feels-like">Feels like ${forecastList[0].main.feels_like.toFixed(
+          0
+        )} &deg;C</p>
         <p class="wind">Wind ${forecastList[0].wind.speed.toFixed(0)} m/s</p>
         <p class="humidity">Humidity ${forecastList[0].main.humidity} %</p>
         <p class="pressure">Pressure ${forecastList[0].main.pressure} hPa</p>
       </div>
     </div>
   `;
+
+  // Display current time
+  const currentTimeElement = document.querySelector("#current-time");
+  setInterval(() => {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    currentTimeElement.textContent = `${hours}:${minutes}`;
+  }, 1000);
 
   // Group forecast data by day
   const forecastsByDay = {};
