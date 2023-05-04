@@ -115,9 +115,9 @@ footer {
   grid-template-rows: auto 1fr;
   border: none;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 16px;
   width: calc(100% / 3 - 20px); /* Divide the width of the container by the number of cards per row and subtract the margin */
 }

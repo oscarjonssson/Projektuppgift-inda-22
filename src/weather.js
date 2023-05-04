@@ -11,16 +11,16 @@ async function getDefaultWeather() {
       `https://api.openweathermap.org/data/2.5/weather?lat=59.3293&lon=18.0686&appid=${apiKey}&units=metric`
     );
     const data = await response.json();
-    console.log(data); // Print the data object to the console to see the structure of the response
-    const temperature = data.main.temp.toFixed(0);
-    const description = data.weather[0].description;
+    console.log(data);
 
-    // Get 7-day forecast data
     const forecastResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=59.3293&lon=18.0686&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=59.3293&lon=18.0686&appid=${apiKey}&units=metric&cnt=40&lang=en`
     );
     const forecastData = await forecastResponse.json();
-    console.log(forecastData); // Print the data object to the console to see the structure of the response
+    console.log(forecastData);
+
+    const temperature = data.main.temp.toFixed(0);
+    const description = data.weather[0].description;
 
     displayWeather("Stockholm", temperature, description, forecastData.list);
   } catch (error) {
@@ -49,7 +49,7 @@ searchForm.addEventListener("submit", async (e) => {
       const temperature = data.main.temp.toFixed(0);
       const description = data.weather[0].description;
 
-      // Get 7-day forecast data
+      // Get 5-day forecast data
       const forecastResponse = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric`
       );
@@ -63,10 +63,11 @@ searchForm.addEventListener("submit", async (e) => {
   }
 });
 
+// Display weather data
 function displayWeather(location, temperature, description, forecastList) {
   // Display today's weather card
   todayWidget.innerHTML = `
-    <div class="card">
+    <div class="card large">
       <h2>${location}</h2>
       <div class="card-content">
         <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon}.png" alt="${description}" />
@@ -93,10 +94,15 @@ function displayWeather(location, temperature, description, forecastList) {
     forecastsByDay[day].push(forecast);
   }
 
-  // Display 7-day forecast cards
+  // Display 5-day forecast cards
   const forecastContainer = document.querySelector("#forecast-container");
   forecastContainer.innerHTML = "";
+  let firstDay = true;
   for (const day in forecastsByDay) {
+    if (firstDay) {
+      firstDay = false;
+      continue; // Skip first day (today's weather)
+    }
     const forecastDay = forecastsByDay[day];
     const dayOfWeek = new Date(forecastDay[0].dt * 1000).toLocaleString(
       "en-US",
@@ -116,6 +122,7 @@ function displayWeather(location, temperature, description, forecastList) {
       }
     }
 
+    // Create HTML for the forecast card
     const description = forecastDay[0].weather[0].description;
     const forecastDayHTML = `
       <div class="card">
@@ -132,6 +139,4 @@ function displayWeather(location, temperature, description, forecastList) {
     `;
     forecastContainer.innerHTML += forecastDayHTML;
   }
-
-  locationInput.value = ""; // Clear the input field
 }
