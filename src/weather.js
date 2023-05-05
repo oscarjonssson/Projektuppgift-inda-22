@@ -1,4 +1,4 @@
-const apiKey = "98374256fb4b7a1bd17c4163753707c1";
+const apiKey = "9226ed0b9dd0791ba0039533eae0c888";
 const searchForm = document.querySelector("form");
 const locationInput = document.querySelector('input[name="location"]');
 const todayWidget = document.querySelector("#today-widget");
@@ -31,39 +31,6 @@ async function getDefaultWeather() {
   }
 }
 
-searchForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const location = locationInput.value;
-
-  try {
-    // Get current weather data
-    const currentResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
-    );
-    const currentData = await currentResponse.json();
-    console.log(currentData);
-
-    // Get forecast weather data
-    const forecastResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric&cnt=40&lang=en`
-    );
-    const forecastData = await forecastResponse.json();
-    console.log(forecastData);
-
-    // Update the weather chart with the new data
-    const cityId = currentData.id;
-    updateChartData(cityId, forecastData.list);
-
-    // Display the weather information
-    const temperature = currentData.main.temp.toFixed(0);
-    const description = currentData.weather[0].description;
-    displayWeather(location, temperature, description, forecastData.list);
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-
 // Call getDefaultWeather on page load
 getDefaultWeather();
 
@@ -82,7 +49,7 @@ searchForm.addEventListener("submit", async (e) => {
       );
       const data = await response.json();
       console.log(data); // Print the data object to the console to see the structure of the response
-      const temperature = data.main.temp.toFixed(0);
+      const temperature = data.main.temp;
       const description = data.weather[0].description;
 
       // Get 5-day forecast data
@@ -123,15 +90,6 @@ function displayWeather(location, temperature, description, forecastList) {
       </div>
     </div>
   `;
-
-  // Display current time
-  const currentTimeElement = document.querySelector("#current-time");
-  setInterval(() => {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, "0");
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    currentTimeElement.textContent = `${hours}:${minutes}`;
-  }, 1000);
 
   // Group forecast data by day
   const forecastsByDay = {};
