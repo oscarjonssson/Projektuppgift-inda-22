@@ -49,7 +49,7 @@ searchForm.addEventListener("submit", async (e) => {
       );
       const data = await response.json();
       console.log(data); // Print the data object to the console to see the structure of the response
-      const temperature = data.main.temp;
+      const temperature = data.main.temp.toFixed(0);
       const description = data.weather[0].description;
 
       // Get 5-day forecast data
@@ -76,14 +76,13 @@ function displayWeather(location, temperature, description, forecastList) {
         <span id="current-time"></span>
       </div>
       <div class="card-content">
-        <img src="https://openweathermap.org/img/w/${
-          forecastList[0].weather[0].icon
-        }.png" alt="${description}" />
+        <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon
+    }.png" alt="${description}" />
         <p class="temperature">${temperature} &deg;C</p>
         <p class="description">${description}</p>
         <p class="feels-like">Feels like ${forecastList[0].main.feels_like.toFixed(
-          0
-        )} &deg;C</p>
+      0
+    )} &deg;C</p>
         <p class="wind">Wind ${forecastList[0].wind.speed.toFixed(0)} m/s</p>
         <p class="humidity">Humidity ${forecastList[0].main.humidity} %</p>
         <p class="pressure">Pressure ${forecastList[0].main.pressure} hPa</p>
@@ -142,9 +141,8 @@ function displayWeather(location, temperature, description, forecastList) {
       <div class="card">
         <h3>${dayOfWeek}</h3>
         <div class="card-content">
-          <img src="https://openweathermap.org/img/w/${
-            forecastDay[0].weather[0].icon
-          }.png" alt="${description}" />
+          <img src="https://openweathermap.org/img/w/${forecastDay[0].weather[0].icon
+      }.png" alt="${description}" />
           <p class="temperature">High: ${Math.round(highestTemp)} &deg;C</p>
           <p class="temperature">Low: ${Math.round(lowestTemp)} &deg;C</p>
           <p class="description">${description}</p>
