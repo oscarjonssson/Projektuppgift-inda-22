@@ -7,14 +7,16 @@ const forecastWidget = document.querySelector("#forecast-widget");
 // Get default weather data for Stockholm
 async function getDefaultWeather() {
   try {
+    const city = "Stockholm";
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=59.3293&lon=18.0686&appid=${apiKey}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     );
     const data = await response.json();
     console.log(data);
 
+    const cityId = data.id; // Get the city ID from the API response
     const forecastResponse = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=59.3293&lon=18.0686&appid=${apiKey}&units=metric&cnt=40&lang=en`
+      `https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}&units=metric&cnt=40&lang=en`
     );
     const forecastData = await forecastResponse.json();
     console.log(forecastData);
@@ -22,11 +24,45 @@ async function getDefaultWeather() {
     const temperature = data.main.temp.toFixed(0);
     const description = data.weather[0].description;
 
-    displayWeather("Stockholm", temperature, description, forecastData.list);
+    displayWeather(city, temperature, description, forecastData.list);
+    updateChartData(cityId); // Call the updateChartData function with the new city ID
   } catch (error) {
     console.error(error);
   }
 }
+
+searchForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const location = locationInput.value;
+
+  try {
+    // Get current weather data
+    const currentResponse = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`
+    );
+    const currentData = await currentResponse.json();
+    console.log(currentData);
+
+    // Get forecast weather data
+    const forecastResponse = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric&cnt=40&lang=en`
+    );
+    const forecastData = await forecastResponse.json();
+    console.log(forecastData);
+
+    // Update the weather chart with the new data
+    const cityId = currentData.id;
+    updateChartData(cityId, forecastData.list);
+
+    // Display the weather information
+    const temperature = currentData.main.temp.toFixed(0);
+    const description = currentData.weather[0].description;
+    displayWeather(location, temperature, description, forecastData.list);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
 
 // Call getDefaultWeather on page load
 getDefaultWeather();

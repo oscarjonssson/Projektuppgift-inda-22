@@ -6,7 +6,7 @@ This weather website provides users with up-to-date weather information for any 
 
 ## Features
 * 🌡️ Current weather conditions: Users can view the current temperature, humidity, wind speed, and other weather conditions for any location in the world.
-* 🌤️ 5-day weather forecast: Users can view a 5-day forecast for any location in the world, including high and low temperatures, precipitation, and wind conditions.
+* 🌤️ Weather forecast: Users can view a forecast for any location in the world, including high and low temperatures.
 * 🗺️ Interactive map: The website features an interactive map that allows users to view weather information for different locations by clicking on a specific point on the map.
 
 ## Technologies Used 🚀

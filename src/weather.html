@@ -31,15 +31,22 @@
             <h2></h2>
           </div>
         </div>
+
+        <div id="chart-widget">
+          <h2>Weather Chart</h2>
+          <canvas id="weather-chart"></canvas>
+        </div>
+
         <!-- 5-day forecast code goes here -->
         <div id="forecast-widget">
-          <h2>5-Day Forecast</h2>
+          <h2></h2>
           <div id="forecast-container" class="forecast-cards"></div>
         </div>
 
         <div id="forecast-days">
           <!-- Weather card elements will be added here -->
         </div>
+
       </div>
 
       <div id="map" style="height: 500px; width: 1100px"></div>
@@ -53,8 +60,14 @@
     <!-- Include Leaflet JavaScript library -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-    <!-- Include your own JavaScript file that contains map initialization code -->
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Include your own JavaScript file that contains map initialization code and chart data fetching code -->
     <script src="map.js"></script>
     <script src="weather.js"></script>
+    <script src="chart.js"></script>
   </body>
 </html>
+
+
