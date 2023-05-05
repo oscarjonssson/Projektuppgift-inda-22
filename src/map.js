@@ -14,7 +14,7 @@ window.onload = function () {
   function updateMap(location) {
     // Make a request to OpenWeatherMap API that returns the latitude and longitude for the given location
     var API_URL = "https://api.openweathermap.org/data/2.5/weather";
-    var apiKey = "9226ed0b9dd0791ba0039533eae0c888";
+    var apiKey = "98374256fb4b7a1bd17c4163753707c1";
     fetch(`${API_URL}?q=${location}&appid=${apiKey}&units=metric`)
       .then((response) => response.json())
       .then((data) => {

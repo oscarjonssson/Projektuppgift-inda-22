@@ -1,4 +1,4 @@
-const API_KEY = "9226ed0b9dd0791ba0039533eae0c888";
+const API_KEY = "98374256fb4b7a1bd17c4163753707c1";
 const CITY_ID = "2673730"; // Stockholm
 const DEFAULT_CITY = "Stockholm";
 
