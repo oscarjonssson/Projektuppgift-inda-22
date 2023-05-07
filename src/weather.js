@@ -170,3 +170,11 @@ function displayWeather(location, temperature, description, forecastList) {
     forecastContainer.innerHTML += forecastDayHTML;
   }
 }
+
+//Dark mode implementation
+const toggleTheme = document.querySelector("#toggle-theme");
+const body = document.querySelector("body");
+
+toggleTheme.addEventListener("change", () => {
+  body.classList.toggle("dark-mode");
+});
