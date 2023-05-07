@@ -1,4 +1,4 @@
-const apiKey = "9226ed0b9dd0791ba0039533eae0c888";
+const apiKey = "98374256fb4b7a1bd17c4163753707c1";
 const searchForm = document.querySelector("form");
 const locationInput = document.querySelector('input[name="location"]');
 const todayWidget = document.querySelector("#today-widget");
