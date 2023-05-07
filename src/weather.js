@@ -91,7 +91,7 @@ function displayWeather(location, temperature, description, forecastList) {
     <div class="card large">
       <div class="card-header">
         <h2>${location}</h2>
-        <span id="current-time"></span>
+        <span class="pushpin">&#128205;</span>
       </div>
       <div class="card-content">
         <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon
