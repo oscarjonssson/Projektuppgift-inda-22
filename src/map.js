@@ -10,6 +10,12 @@ window.onload = function () {
     maxZoom: 18,
   }).addTo(myMap);
 
+  // Create a precipitation layer based on OpenWeatherMap API key data
+  var precipitationLayer = L.tileLayer("https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=9226ed0b9dd0791ba0039533eae0c888", {
+    attribution: '<a href="https://openweathermap.org/">OpenWeatherMap</a>',
+    maxZoom: 18,
+  });
+
   // Create a function that will update the map based on the user's input
   function updateMap(location) {
     // Make a request to OpenWeatherMap API that returns the latitude and longitude for the given location
@@ -36,6 +42,10 @@ window.onload = function () {
     updateMap(location);
   });
 
+  // Add the precipitation layer to the map
+  precipitationLayer.addTo(myMap);
+
   // Set the map view to Stockholm by default
   updateMap("Stockholm");
 };
+
