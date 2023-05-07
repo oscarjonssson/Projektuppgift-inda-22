@@ -129,3 +129,9 @@ footer {
   align-items: center;
   margin-bottom: 16px;
 }
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  }
