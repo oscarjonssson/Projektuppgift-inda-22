@@ -1,13 +1,12 @@
-const apiKey = "9226ed0b9dd0791ba0039533eae0c888";
+const apiKey = "98374256fb4b7a1bd17c4163753707c1";
 const searchForm = document.querySelector("form");
 const locationInput = document.querySelector('input[name="location"]');
 const todayWidget = document.querySelector("#today-widget");
 const forecastWidget = document.querySelector("#forecast-widget");
 
 // Get default weather data for Stockholm
-async function getDefaultWeather() {
+async function getDefaultWeather(city) {
   try {
-    const city = "Stockholm";
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
     );
@@ -31,8 +30,27 @@ async function getDefaultWeather() {
   }
 }
 
-// Call getDefaultWeather on page load
-getDefaultWeather();
+// Call getDefaultWeather with user location on page load
+navigator.geolocation.getCurrentPosition(
+  async (position) => {
+    const { latitude, longitude } = position.coords;
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
+      );
+      const data = await response.json();
+      console.log(data);
+      const city = data.name;
+      getDefaultWeather(city);
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  (error) => {
+    console.error(error);
+    getDefaultWeather("Stockholm");
+  }
+);
 
 searchForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -73,11 +91,11 @@ function displayWeather(location, temperature, description, forecastList) {
     <div class="card large">
       <div class="card-header">
         <h2>${location}</h2>
-        <span id="current-time"></span>
+        <span class="pushpin">&#128205;</span>
       </div>
       <div class="card-content">
         <img src="https://openweathermap.org/img/w/${forecastList[0].weather[0].icon
-    }.png" alt="${description}" />
+    }.png" alt="${description}" width="80" height="80"/>
         <p class="temperature">${temperature} &deg;C</p>
         <p class="description">${description}</p>
         <p class="feels-like">Feels like ${forecastList[0].main.feels_like.toFixed(
@@ -153,3 +171,10 @@ function displayWeather(location, temperature, description, forecastList) {
   }
 }
 
+//Dark mode implementation
+const toggleTheme = document.querySelector("#toggle-theme");
+const body = document.querySelector("body");
+
+toggleTheme.addEventListener("change", () => {
+  body.classList.toggle("dark-mode");
+});

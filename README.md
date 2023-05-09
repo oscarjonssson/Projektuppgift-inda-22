@@ -12,15 +12,19 @@ This weather website provides users with up-to-date weather information for any 
 ## Technologies Used 🚀
 * HTML: The website's structure and content are built using HTML.
 * CSS: The website's styling and layout are created using CSS.
-* JavaScript: Will be used for the interactive map and OpenWeatherMap API.
-* 💬 OpenAI ChatGPT API: We will use OpenAI's ChatGPT API in the developing process. It will be used in the programming of the webiste to enhance the user experience. For example, the interactive map. With our programming experience and the help of the AI tool, we plan to create a more interactive map.
-* 📈 GitHub Copilot: We will also use GitHub Copilot in the developing process as an integrated part of VSCode. It is also an AI tool, this will help us to write code faster and more efficiently.
-* 🌍 OpenWeatherMap API: The website uses OpenWeatherMap API to retrieve weather data for any location in the world.
+* JavaScript: Will be used for the interactive map and `OpenWeatherMap` API.
+* 💬 OpenAI ChatGPT: We will use `OpenAI's ChatGPT` in the developing process. It will be used in the programming of the webiste to enhance the user experience. For example, the interactive map. With our programming experience and the help of the AI tool, we plan to create a more interactive map.
+* 📈 GitHub Copilot: We will also use `GitHub Copilot` in the developing process as an integrated part of VSCode. It is also an AI tool, this will help us to write code faster and more efficiently.
+* 🌍 OpenWeatherMap API: The website uses `OpenWeatherMap` API to retrieve weather data for any location in the world.
+* 🗺️ Protomap API: From `https://protomaps.com/` we use our API key that displays the interactive map. By using `Leaflet`, the interactive map can be displayed together with a layer of precipitation data from `OpenWeatherMap`. 
+
+## Timline 📅
+* On our repo under `issues` you can see our `milestones` that include detailed planning for what has been done during every week of the project.
 
 ## Setup 🛠️
 To set up the weather website on your local machine, follow these steps:
 
-* Clone the repository: git clone git@github.com:oscarjonssson/projektuppgift-inda-22.git
+* Clone the repository: git clone `git@github.com:oscarjonssson/projektuppgift-inda-22.git`
 * Install the required dependencies: npm install
 * Start the server: npm start
 
