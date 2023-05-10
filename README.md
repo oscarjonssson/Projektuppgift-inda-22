@@ -52,7 +52,7 @@ The website includes a search function that enables users to find weather inform
 
 To enhance user experience, the website offers a toggle that allows users to switch between Light and Dark modes. This feature provides flexibility and ensures readability in different environments.
 
-![Dark Mode Screenshot](.images/6w.png)
+![Dark Mode Screenshot](./images/6w.png)
 
 ## Setup 🛠️
 To set up the weather website on your local machine, follow these steps:
