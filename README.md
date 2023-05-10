@@ -21,6 +21,39 @@ This weather website provides users with up-to-date weather information for any 
 ## Timline 📅
 * On our repo under `issues` you can see our `milestones` that include detailed planning for what has been done during every week of the project.
 
+## Features
+
+### Today's Weather Forecast and Upcoming 5 Days
+
+The website provides a detailed weather forecast for today and the next 5 days. Users can easily view the temperature, precipitation, and other relevant information.
+
+![Weather Forecast Screenshot](./images/1w.png)
+
+### Interactive Map with Current Location
+
+The interactive map feature allows users to explore weather conditions around the world. By accessing the user's current location, the map centers on their area and provides real-time weather updates.
+
+![Interactive Map Screenshot](./images/2w.png)
+
+### Precipitation (Rain) Layer
+
+In addition to the interactive map, there is a precipitation layer that displays rain changes globally. Users can quickly identify regions experiencing rainfall at any given moment.
+
+![Precipitation Layer Screenshot](./images/3w.png)
+
+### City Search Functionality
+
+The website includes a search function that enables users to find weather information for specific cities. When a city is searched (e.g., London), the weather details and the upcoming 5-day forecast are updated accordingly. The interactive map also displays the searched city.
+
+![City Search Screenshot](./images/4w.png)
+![City Search Interactive Map](./images/5w.png)
+
+### Light and Dark Mode
+
+To enhance user experience, the website offers a toggle that allows users to switch between Light and Dark modes. This feature provides flexibility and ensures readability in different environments.
+
+![Dark Mode Screenshot](.images/6w.png)
+
 ## Setup 🛠️
 To set up the weather website on your local machine, follow these steps:
 
